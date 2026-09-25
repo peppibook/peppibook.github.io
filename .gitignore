@@ -1,0 +1,9 @@
+# 내부 작업 기록 (전화번호 등 포함) — 공개 저장소에 올리지 않음
+SESSION_STATE.md
+.claude/
+# 사이트에서 쓰지 않는 원본·예전 파일
+assets/screenshot.png
+assets/img/profile.jpg
+assets/img/profile-toon-alt.jpg
+.DS_Store
+supabase/.temp/
