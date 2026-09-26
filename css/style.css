@@ -992,3 +992,18 @@ sup { font-size: 0.6em; vertical-align: super; }
 @media (max-width: 768px) {
   .inquiry__row { grid-template-columns: 1fr; }
 }
+
+/* ─── 여행 · 가이드 기록 ─── */
+.guide__stats {
+  display: flex;
+  gap: var(--space-xl);
+  margin: var(--space-lg) 0 var(--space-xl);
+  flex-wrap: wrap;
+}
+.guide__year {
+  font-size: var(--size-xs);
+  letter-spacing: 0.15em;
+  color: var(--crimson);
+  margin-bottom: var(--space-md);
+}
+.guide__training { margin-top: var(--space-xl); }
