@@ -1069,3 +1069,12 @@ sup { font-size: 0.6em; vertical-align: super; }
 @media (max-width: 768px) {
   .guide__gallery { grid-template-columns: 1fr; }
 }
+
+/* ─── 가이드 기록 링크 · 상세 페이지 ─── */
+.guide__entry:hover .edu__degree { color: var(--crimson); }
+.guide__entry:focus-visible { outline: 2px solid var(--crimson); outline-offset: 4px; }
+.guide__more { display: inline-block; margin-top: var(--space-sm); color: var(--crimson); text-decoration: underline; }
+.tour__header { padding: var(--space-lg) var(--space-xl); border-bottom: 1px solid var(--line); }
+.tour__header a:focus-visible { outline: 2px solid var(--crimson); outline-offset: 4px; }
+.tour__main .guide__feature { border-bottom: 0; }
+.tour__main .edu__location { color: var(--ink-light); }
