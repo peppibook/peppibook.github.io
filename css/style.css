@@ -73,6 +73,32 @@ ul { list-style: none; }
 sup { font-size: 0.6em; vertical-align: super; }
 
 /* ─── UTILITY ─── */
+/* ─── TITLE LANDING ─── */
+.landing__main {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+}
+
+.landing__title {
+  font-family: var(--ff-serif);
+  font-size: clamp(3rem, 12vw, 7rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.landing__link { display: inline-block; color: var(--crimson); }
+.landing__link:hover { color: var(--crimson-2); }
+.landing__link:focus-visible, .nav__logo:focus-visible {
+  outline: 3px solid var(--crimson);
+  outline-offset: 8px;
+}
+
+.guide__schedule--paju li > .mono { color: var(--crimson); white-space: nowrap; }
+
 .section {
   padding: var(--space-3xl) var(--gutter);
   max-width: var(--max-w);
@@ -1010,6 +1036,7 @@ sup { font-size: 0.6em; vertical-align: super; }
 
 .guide__2026 { margin-bottom: var(--space-xl); }
 .guide__feature { padding: var(--space-lg) 0; border-bottom: 1px solid var(--line); }
+#guide .edu__location { color: var(--ink-light); }
 .guide__feature:first-child { padding-top: 0; }
 .guide__gallery {
   display: grid;
