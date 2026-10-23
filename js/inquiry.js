@@ -4,6 +4,18 @@
 
 const form = document.getElementById('inquiry-form');
 const statusEl = document.getElementById('inquiry-status');
+const inquiryEnglish = document.documentElement.lang.startsWith('en');
+const inquiryCopy = inquiryEnglish ? {
+  short: 'Please enter at least 5 characters in your message.',
+  sending: 'Sending…',
+  success: 'Your inquiry has been received. I will reply using the contact details you provided.',
+  failure: 'Your inquiry could not be sent. Please try again later or contact me by email.',
+} : {
+  short: '문의 내용을 5자 이상 적어 주세요.',
+  sending: '보내는 중…',
+  success: '문의가 접수되었습니다. 남겨 주신 연락처로 답장드리겠습니다.',
+  failure: '전송에 실패했습니다. 잠시 후 다시 시도하시거나 이메일로 연락해 주세요.',
+};
 
 const setStatus = (msg, type) => {
   statusEl.textContent = msg;
@@ -25,13 +37,13 @@ form?.addEventListener('submit', async (e) => {
   };
 
   if (payload.message.length < 5) {
-    setStatus('문의 내용을 5자 이상 적어 주세요.', 'error');
+    setStatus(inquiryCopy.short, 'error');
     return;
   }
 
   const button = form.querySelector('button[type="submit"]');
   button.disabled = true;
-  setStatus('보내는 중…', 'pending');
+  setStatus(inquiryCopy.sending, 'pending');
 
   try {
     const res = await fetch(`${window.SUPABASE_URL}/rest/v1/inquiries`, {
@@ -45,10 +57,10 @@ form?.addEventListener('submit', async (e) => {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}: ${await res.text()}`);
     form.reset();
-    setStatus('문의가 접수되었습니다. 남겨 주신 연락처로 답장드리겠습니다.', 'ok');
+    setStatus(inquiryCopy.success, 'ok');
   } catch (err) {
     console.error('[inquiry]', err);
-    setStatus('전송에 실패했습니다. 잠시 후 다시 시도하시거나 이메일로 연락해 주세요.', 'error');
+    setStatus(inquiryCopy.failure, 'error');
   } finally {
     button.disabled = false;
   }
